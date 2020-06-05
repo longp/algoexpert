@@ -15,6 +15,7 @@ class Solution {
 
         if(this.sequence.length > this.array.length)
             return false
+
         // loop over main array and increase the sequence index everytime we find a 
         // match with an element in the main array and the current sequence item
         for (let i = 0; i < this.array.length; i++) {
@@ -35,6 +36,13 @@ class Solution {
         
         let arrIdx = 0
         let seqIdx = 0
+        
+        if(this.array == this.sequence)
+            return true 
+
+        if(this.sequence.length > this.array.length)
+            return false
+
         // while loop breaks out if either indexes go over the length
         while (arrIdx < this.array.length &&  seqIdx < this.sequence.length ) {
             // if we find a match in main array we up sequence index
@@ -55,11 +63,14 @@ class Solution {
   }
 
 
-const { array, sequence } = { "array":[1, 1, 1, 1, 1], "sequence":  [1, 1, 1] };
+const { array, sequence } = {
+    "array": [5, 1, 22, 25, 6, -1, 8, 10],
+    "sequence": [5, 1, 22, 25, 6, -1, 8, 10, 12]
+  };
 
 
-// let solution = new Solution(array,sequence,'one')
-let solution = new Solution(array,sequence,'two')
+let solution = new Solution(array,sequence,'one')
+// let solution = new Solution(array,sequence,'two')
 
 let process = solution.process()
 console.log(process)
